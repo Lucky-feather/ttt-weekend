@@ -6,7 +6,17 @@ body {
 	margin: 0;
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
+}
+
+h1 {
+border: 5px solid #FFFF00;
+text-align: center;
+}
+
+h2 {
+  border: 5px solid #FFFF00;
+  text-align: center;
 }
 
 section.board {
@@ -14,10 +24,18 @@ section.board {
   grid-template-rows: repeat(3, 10vmin);
   grid-template-columns: repeat(3, 10vmin);
   grid-gap: 0vmin;
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #FFFF00;
+  padding:10% 20%;
 }
 
 div {
   border: 3px solid black;
+  margin: 3px;
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
