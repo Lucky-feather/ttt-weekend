@@ -4,7 +4,7 @@
 
 // /*---------------- Variables (state) -----------------*/
 
-const board = [null, null, null, null, null, null, null, null, null,]
+//const board = [null, null, null, null, null, null, null, null, null,]
 //state of the board
 // const turn =
 // //track whose turn it is
@@ -20,33 +20,38 @@ const messageEl = document.querySelector("#message")
 
 // /*----------- Event Listeners ----------------*/
 
-messageEl.addEventListener('click', handleClick)
+//messageEl.addEventListener('click', handleClick)
 //squareEls.addEventListener('click', handleClick)
 // /*-------------- Functions ---------------*/
+
+//board[index] = squareEls[index]
 
 function init() {
     messageEl.textContent = "Player 1 select a square!"
     console.log(messageEl)
-    let board = [null, null, -1, null, null, null, 1, null, null,]
+    const board = [null, null, null, null, null, null, null, null, null]
     turn = 1
     winner = null
-    console.log(board)
+    //console.log(board)
     render()
 }
+const board = [null, 1, null, 1, -1, null, null, null, null]
 
 function render() { 
-    //display updated state as changes are made
-board.forEach(function(element, index) {
-    if (element === 1){
-        squareEls[index].textContent = 'X'
-    } else if (element === -1){
-        squareEls[index].textContent = "O"
-        }
-        console.log(element)
+    board.forEach(function(_num, index) {
+    if (_num === 1){
+      squareEls[index].textContent = 'X'
+    } else if (_num === -1){
+    squareEls[index].textContent = "O"
+    } else {
+        squareEls[index].textContent = null
+    }
+        console.log(_num)
         console.log(board[index])
         console.log(squareEls[index])
     })
-    }
+}
+    // }
 
     init()
 
@@ -95,9 +100,5 @@ winningCombos = [
 
 // 7) Build the `getWinner` function
 //     // initialized by selections = 1 of 8 combinations
-
-
-// //? 8) Create Reset functionality
-
 
 
