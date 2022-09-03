@@ -40,12 +40,11 @@ function init() {
     turn = 1
     winner = null
     //console.log(board)
-    
+    render()
 }
 
-
 const board = [-1, 1, null, 1, -1, null, null, null, -1]
-render()
+
 
 function render() { 
 board.forEach(function(_num, index) {
@@ -63,22 +62,20 @@ board.forEach(function(_num, index) {
         console.log(_num)
         console.log(board[index])
         console.log(squareEls[index])
-    }) }
-
-let player1 = winner
-
-function isWinner() {
-return winner = player1 || player2 ?  
-messageEl.textContent = `${winner} wins!`
-: messageEl.textContent = `${player} it's your turn`
+    })
+// if winner = null, switch between player 1 and 2
+if (winner === null) { 
+    return (turn === 1 ? messageEl.textContent = `Player 1, it's your turn`
+    : messageEl.textContent = `Player 2, it's your turn`)
+} else if (winner === T) {
+    return messageEl.textContent = "It's a tie game!"
+}   else {
+    return (winner === 1 ? messageEl.textContent = "player1 wins!" : messageEl.textContent = "player2 wins!")
 }
-
+}
+ 
 init()
-isWinner()
 
-function handleClick(){
-    console.log("clicked on something")
-}
 
 // 1) Define the required variables used to track the state of the game
 
