@@ -10,6 +10,13 @@
 // //track whose turn it is
 // let winner =
 //represent if anyone has won, or if there is a tie
+winningCombos = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+    ]
 
 // /*------------ Cached Element References -------------*/
 const gameBoard = document.querySelector(".board")
@@ -29,16 +36,22 @@ const messageEl = document.querySelector("#message")
 function init() {
     messageEl.textContent = "Player 1 select a square!"
     console.log(messageEl)
-    const board = [null, null, null, null, null, null, null, null, null]
+   // board = [null, null, null, null, null, null, null, null, null]
     turn = 1
     winner = null
     //console.log(board)
-    render()
+    
 }
-const board = [null, 1, null, 1, -1, null, null, null, null]
+
+
+const board = [-1, 1, null, 1, -1, null, null, null, -1]
+render()
 
 function render() { 
-    board.forEach(function(_num, index) {
+board.forEach(function(_num, index) {
+    // if (_num != null){
+    //     messageEl.textContent = "This square is already occupied.  Try a different one"
+    // }
     if (_num === 1){
       squareEls[index].textContent = 'X'
     } else if (_num === -1){
@@ -46,17 +59,25 @@ function render() {
     } else {
         squareEls[index].textContent = null
     }
+        
         console.log(_num)
         console.log(board[index])
         console.log(squareEls[index])
-    })
-}
-    // }
+    }) }
 
-    init()
+let player1 = winner
+
+function isWinner() {
+return winner = player1 || player2 ?  
+messageEl.textContent = `${winner} wins!`
+: messageEl.textContent = `${player} it's your turn`
+}
+
+init()
+isWinner()
 
 function handleClick(){
-    console.log("you got this!")
+    console.log("clicked on something")
 }
 
 // 1) Define the required variables used to track the state of the game
@@ -70,14 +91,6 @@ function handleClick(){
 
 
 // 5) Define the required constants
-
-winningCombos = [
-[0, 1, 2],
-[3, 4, 5],
-[6, 7, 8],
-[0, 4, 8],
-[2, 4, 6]
-]
 
 //***********************************************
 
@@ -99,6 +112,3 @@ winningCombos = [
 
 
 // 7) Build the `getWinner` function
-//     // initialized by selections = 1 of 8 combinations
-
-

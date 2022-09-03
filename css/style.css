@@ -19,6 +19,7 @@ h2 {
   text-align: center;
 }
 
+
 #reset-button {
   content: 24px 48px
 }
@@ -42,5 +43,4 @@ div {
   margin: 3px;
   font-size: 8vmin;
   text-align: center;
-  vertical-align: middle;
 }
