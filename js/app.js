@@ -7,16 +7,23 @@
 
 
 // /*------------------------ Cached Element References ------------------------*/
+const gameSquares = document.querySelector(".gs")
 const squares = document.querySelectorAll("div")
 const squareArray = Array.from(squares)
+const btn = document.querySelector("button")
 ////const box = document.querySelector("div")
-// const resetB = document.querySelector("#reset")
-const messageEl = document.querySelector("h2")
+const resetB = document.querySelector("#reset-button")
+const messageEl = document.querySelector("#message")
 
-// /*----------------------------- Event Listeners -----------------------------*/
-// form.addEventListener('reset', init)
+// /*----------- Event Listeners -----------------*/
 
-// /*-------------------------------- Functions --------------------------------*/
+messageEl.addEventListener('click', handleClick)
+gameSquares.addEventListener('click', handleClick)
+// /*-------------- Functions ---------------*/
+
+function handleClick(){
+    console.log("you got this!")
+}
 
 // 1) Define the required variables used to track the state of the game
 
@@ -30,6 +37,8 @@ console.log(squares)
 console.log(squareArray) 
 
 
+
+
 // 4) The state of the game should be rendered to the user
 
 // 5) Define the required constants
@@ -37,6 +46,9 @@ console.log(squareArray)
 
 
 // 6) Handle a player clicking a square with a `handleClick` function
+
+
+
 
 function init() {
 messageEl.textContent = "Player 1 select a square!"
@@ -47,6 +59,11 @@ function render() {
 }
 //display updated state as changes are made
 //* squareArray = div#sq0, div#sq1, div#sq2, div#sq3, div#sq4, div#sq5, div#sq6, div#sq7, div#sq8]
+
+squareArray.forEach(square => {
+    square= 'null'
+})
+
 
 
 
