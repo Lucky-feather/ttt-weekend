@@ -16,7 +16,7 @@ const winningCombos = [
     [0, 4, 8],
     [2, 4, 6]
     ]
-let board = [null, null, null, null, null, null, null, null, null]
+let board = [1, null, null, null, null, null, null, null, null]
 
 // /*------------ Cached Element References -------------*/
 const gameBoard = document.querySelector(".board")
@@ -31,29 +31,38 @@ const messageEl = document.querySelector("#message")
 gameBoard.addEventListener('click', handleClick)
 // /*-------------- Functions ---------------*/
 
-function handleClick(evt) {
-    sId = parseInt(evt.target.id[2])
-board.splice(sId, 1, turn)
-console.log(board)
-render()
-}
-
 function init() {
     messageEl.textContent = "Player 1 select a square!"
     console.log(messageEl)
-   // board = [null, null, null, null, null, null, null, null, null]
+    board = [null, null, null, null, null, null, null, null, null]
     turn = 1
     winner = null
     //console.log(board)
     render()
 }
 
+function handleClick(evt) {
+    sId = parseInt(evt.target.id[2])
+    board.splice(sId, 1, turn)
+
+//{messageEl.textContent = "occupied, try a different square"}
+//else {
+//else {}
+//    console.log(board)}
+if ([winningCombos] === turn * 3) {
+    isWinner()
+    console.log("winner!")
+}
+    
+turn = turn * -1
+render()
+}
+
 
 function render() {
 
 board.forEach(function(object, index) {
-    //     messageEl.textContent = "This square is already occupied.  Try a different one"
-    // }
+
 console.log(board)
     if 
     (object === 1)
@@ -61,9 +70,9 @@ console.log(board)
 } else if ( object=== -1) {
     squareEls[index].textContent = "O"
 } else {
-    squareEls[index].textContent = null
+    squareEls[index].textContent = null}
 }
-})}
+)}
         
 //console.log(object)
 //         console.log(board[index])
