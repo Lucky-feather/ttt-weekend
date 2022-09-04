@@ -28,10 +28,12 @@ const messageEl = document.querySelector("#message")
 // /*----------- Event Listeners ----------------*/
 
 //messageEl.addEventListener('click', handleClick)
-//squareEls.addEventListener('click', handleClick)
+gameBoard.addEventListener('click', handleClick)
 // /*-------------- Functions ---------------*/
 
-//board[index] = squareEls[index]
+function handleClick(evt) {
+    console.log(evt.target.id)
+}
 
 function init() {
     messageEl.textContent = "Player 1 select a square!"
@@ -52,9 +54,9 @@ board.forEach(function(_num, index) {
     //     messageEl.textContent = "This square is already occupied.  Try a different one"
     // }
     if (_num === 1){
-      squareEls[index].textContent = 'X'
+        squareEls[index].textContent = 'X'
     } else if (_num === -1){
-    squareEls[index].textContent = "O"
+        squareEls[index].textContent = "O"
     } else {
         squareEls[index].textContent = null
     }
@@ -67,14 +69,15 @@ board.forEach(function(_num, index) {
 if (winner === null) { 
     return (turn === 1 ? messageEl.textContent = `Player 1, it's your turn`
     : messageEl.textContent = `Player 2, it's your turn`)
-} else if (winner === T) {
+} else if (winner === "T") {
     return messageEl.textContent = "It's a tie game!"
 }   else {
-    return (winner === 1 ? messageEl.textContent = "player1 wins!" : messageEl.textContent = "player2 wins!")
+    return (winner === 1 ? messageEl.textContent = "player 1 wins!" : messageEl.textContent = "player 2 wins!")
 }
 }
- 
 init()
+
+
 
 
 // 1) Define the required variables used to track the state of the game
@@ -89,23 +92,4 @@ init()
 
 // 5) Define the required constants
 
-//***********************************************
-
-
-
-
-
 // 6) Handle a player clicking a square with a `handleClick` function
-
-
-
-
-
-
-
-
-
-
-
-
-// 7) Build the `getWinner` function

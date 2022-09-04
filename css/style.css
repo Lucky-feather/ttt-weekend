@@ -12,6 +12,7 @@ body {
 h1 {
 border: 5px solid #FFFF00;
 text-align: center;
+font-style: oblique;
 }
 
 h2 {
@@ -42,5 +43,6 @@ div {
   border: 3px solid black;
   margin: 3px;
   font-size: 8vmin;
+  align-items: center;
   text-align: center;
 }
