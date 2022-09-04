@@ -4,11 +4,6 @@
 
 // /*---------------- Variables (state) -----------------*/
 
-//state of the board
-// const turn =
-// //track whose turn it is
-// let winner =
-//represent if anyone has won, or if there is a tie
 const winningCombos = [
     [0, 1, 2],
     [3, 4, 5],
@@ -16,18 +11,17 @@ const winningCombos = [
     [0, 4, 8],
     [2, 4, 6]
     ]
-let board = [1, null, null, null, null, null, null, null, null]
+let board = [null, null, null, null, null, null, null, null, null]
 
 // /*------------ Cached Element References -------------*/
 const gameBoard = document.querySelector(".board")
 const squareEls = document.querySelectorAll(".gs")
-const resetB = document.querySelector("#reset-button")
+const resetBtnEl = document.querySelector("#reset-button")
 const messageEl = document.querySelector("#message")
-
 
 // /*----------- Event Listeners ----------------*/
 
-//messageEl.addEventListener('click', handleClick)
+resetBtnEl.addEventListener('click', resetClick)
 gameBoard.addEventListener('click', handleClick)
 // /*-------------- Functions ---------------*/
 
@@ -37,73 +31,68 @@ function init() {
     board = [null, null, null, null, null, null, null, null, null]
     turn = 1
     winner = null
+    player = "player 1"
     //console.log(board)
     render()
 }
 
+init()
+
+function resetClick() {
+    init()
+}
+
 function handleClick(evt) {
-    sId = parseInt(evt.target.id[2])
-    board.splice(sId, 1, turn)
-
-//{messageEl.textContent = "occupied, try a different square"}
-//else {
-//else {}
-//    console.log(board)}
-if ([winningCombos] === turn * 3) {
-    isWinner()
-    console.log("winner!")
-}
+    sqIdx = parseInt(evt.target.id[2])
+    board.splice(sqIdx, 1, turn)
+    console.log(sqIdx)
     
-turn = turn * -1
-render()
+    if (board[sqIdx] != null)
+    {messageEl.textContent = "occupied, try a different square"}
+    //if (winner != null)
+    turn = (turn * -1)
+    console.log(turn)
+    getWinner()
+    render()
 }
-
 
 function render() {
-
+    console.log(board)
 board.forEach(function(object, index) {
-
-console.log(board)
+    
     if 
     (object === 1)
         {squareEls[index].textContent = 'X'
-} else if ( object=== -1) {
+    } else if ( object=== -1) {
     squareEls[index].textContent = "O"
-} else {
+    } else {
     squareEls[index].textContent = null}
+})
+    if (turn === -1) {player = "Player 2"}
+    else {player = "Player 1"}
+
+    if (winner === null) {
+    messageEl.textContent = `${player} select a square`
+    } else if (winner === "T") {
+    messageEl.textContent = "It's a tie! Try again"
+} else {messageEl.textContent = `Great job ${player}, you win!`
 }
-)}
-        
-//console.log(object)
-//         console.log(board[index])
-//         console.log(squareEls[index])
+}
 
-// // if winner = null, switch between player 1 and 2
-
-// if (winner === null) { 
-//     return (turn === 1 ? messageEl.textContent = `Player 1, it's your turn`
-//     : messageEl.textContent = `Player 2, it's your turn`)
-// } else if (winner === "T") {
-//     return messageEl.textContent = "It's a tie game!"
-// }   else {
-//     return (winner === 1 ? messageEl.textContent = "player 1 wins!" : messageEl.textContent = "player 2 wins!")
-// }
-// }
-init()
-
-
-
-
-// 1) Define the required variables used to track the state of the game
-
-// 2) Store cached element references
-
-// 3) Upon loading, the game state should be initialized, and a function should be called to render this game state
-
-
-// 4) The state of the game should be rendered to the user
-
-
-// 5) Define the required constants
-
-// 6) Handle a player clicking a square with a `handleClick` function
+function getWinner() {
+//     for (let i = 0; i < winningCombos.length; i++){
+//         sum = 
+//         board[winningCombos[i][0]] + 
+//         board[winningCombos[i][1]] +
+//         board[winningCombos[i][2]]
+//     }
+//     console.log (sum)
+//     if (sum === 3) {winner = 1}
+//     if (sum === -3) {winner = -1}
+//     else if (board.includes(null) === false) {winner = "T"}
+//     else { winner = null
+// }   
+    
+    console.log(winner + " is winner!")
+}
+    
