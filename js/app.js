@@ -9,7 +9,10 @@ const winningCombos = [
     [3, 4, 5],
     [6, 7, 8],
     [0, 4, 8],
-    [2, 4, 6]
+    [2, 4, 6],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8]
     ]
 let board = [null, null, null, null, null, null, null, null, null]
 let turn 
@@ -34,7 +37,7 @@ function init() {
     turn = 1
     winner = null
     player = "player 1"
-    //console.log(board)
+    
     render()
 }
 
@@ -54,12 +57,14 @@ if (board[sqIdx] != null) {
     else {
     board.splice(sqIdx, 1, turn)}
     console.log(sqIdx)
-   
+
     getWinner()
     console.log('winning')
-
+    turn = (turn * -1)
 render()
-turn = (turn * -1)
+console.log("switch players")
+
+
 }
 
 function render() {
@@ -82,9 +87,8 @@ board.forEach(function(object, index) {
     messageEl.textContent = `${player} select a square`
     } else if (winner === "T") {
     messageEl.textContent = "It's a tie! Try again"
-} else {messageEl.textContent = `Great job ${player}, you win!`
+} else { messageEl.textContent = `Great job ${winner}, you win!`
 }
-
 }
 
 function getWinner() {
@@ -96,6 +100,7 @@ winningCombos.forEach(function(combo) {
         console.log(winner)
         winner = "T"}
     })} 
+
 console.log(winner + " is winner!")
 
 //     for (let i = 0; i < winningCombos.length; i++){
