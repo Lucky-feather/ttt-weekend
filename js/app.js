@@ -55,14 +55,11 @@ if (board[sqIdx] != null) {
     board.splice(sqIdx, 1, turn)}
     console.log(sqIdx)
    
-    // //if (winner != null)
-    // else {}
-
     getWinner()
     console.log('winning')
-turn = (turn * -1)
 
 render()
+turn = (turn * -1)
 }
 
 function render() {
@@ -78,8 +75,8 @@ board.forEach(function(object, index) {
     squareEls[index].textContent = null}
 })
 
-    if (turn === -1) {player = "Player 2"}
-    else {player = "Player 1"}
+    if (turn === 1) {player = "Player 1"}
+    else {player = "Player 2"}
 
     if (winner === null) {
     messageEl.textContent = `${player} select a square`
