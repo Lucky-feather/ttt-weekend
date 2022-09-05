@@ -12,6 +12,8 @@ const winningCombos = [
     [2, 4, 6]
     ]
 let board = [null, null, null, null, null, null, null, null, null]
+let turn 
+let winner 
 
 // /*------------ Cached Element References -------------*/
 const gameBoard = document.querySelector(".board")
@@ -46,16 +48,19 @@ function handleClick(evt) {
     sqIdx = parseInt(evt.target.id[2])
 if (board[sqIdx] != null) {
     return messageEl.textContent = "occupied, try a different square"}
+    else if (winner != null) {
+        return
+    }
     else {
     board.splice(sqIdx, 1, turn)}
     console.log(sqIdx)
-
+   
     // //if (winner != null)
     // else {}
 
     getWinner()
     console.log('winning')
-
+turn = (turn * -1)
 
 render()
 }
@@ -82,7 +87,7 @@ board.forEach(function(object, index) {
     messageEl.textContent = "It's a tie! Try again"
 } else {messageEl.textContent = `Great job ${player}, you win!`
 }
-turn = (turn * -1)
+
 }
 
 function getWinner() {
@@ -90,7 +95,8 @@ winningCombos.forEach(function(combo) {
     sum = Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]])
     if (sum === 3) {
         winner = turn
-    } else if (board.includes(!null)) {
+    } else if ((board.includes(null) === false) && (winner === null)) {
+        console.log(winner)
         winner = "T"}
     })} 
 console.log(winner + " is winner!")
