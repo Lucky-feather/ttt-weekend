@@ -80,14 +80,20 @@ board.forEach(function(object, index) {
     squareEls[index].textContent = null}
 })
 
-    if (turn === 1) {player = "Player 1"}
-    else {player = "Player 2"}
+    if (turn === 1) {
+    player = "Player 1",
+    winName = "player 2"
+}
+    else {
+    player = "Player 2",
+    winName = "Player 1"
+}
 
     if (winner === null) {
     messageEl.textContent = `${player} select a square`
     } else if (winner === "T") {
     messageEl.textContent = "It's a tie! Try again"
-} else { messageEl.textContent = `Great job ${winner}, you win!`
+} else { messageEl.textContent = `Great job ${winName}, you win!`
 }
 }
 
